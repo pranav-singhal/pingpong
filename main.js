@@ -48,6 +48,7 @@ function startGame(){
   var RightP
   var DelTop=-10;
   var DelLeft=10;
+
   number=setInterval(function(){
     var currentPosTop=parseFloat(ball.style.top.slice(0,-2));
     var currentPosLeft=parseFloat(ball.style.left.slice(0,-2));
@@ -88,6 +89,11 @@ function startGame(){
 
 
     }
+    document.body.addEventListener("keydown",function(event){
+      if (event.key==" "){
+        clearInterval(number);
+      }
+    })
   },50)
 }
 
@@ -95,6 +101,7 @@ function startGame(){
 document.body.addEventListener("keydown",function(event){
   if (event.key==" "){
     startGame();
+
     document.getElementById("instructions").style.color='white';
   }
   if (event.key=="ArrowDown"){
